@@ -6,7 +6,11 @@ function Card({ movie }) {
   return (
     <CardStyled>
       <div className="poster">
-        <img src={API_URL + movie.poster.url} alt="" />
+        <img
+          className="movie__poster"
+          src={API_URL + movie.poster.url}
+          alt=""
+        />
       </div>
       <div className="body">
         <h3>{movie.title}</h3>
@@ -18,11 +22,10 @@ function Card({ movie }) {
 
 const CardStyled = styled.div`
   width: 100%;
-  border: 1px solid #cccccc;
+  border: 1px solid lightblue;
   margin-top: 50px;
-  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 
   .body {
     padding: 20px;
@@ -34,6 +37,9 @@ const CardStyled = styled.div`
     p {
       color: #666666;
       line-height: 1.5;
+    }
+    .movie__poster {
+      object-fit: none;
     }
   }
 `;
