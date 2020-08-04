@@ -30,6 +30,9 @@
       "collection": "actors",
       "via": "movies",
       "dominant": true
+    },
+    "description": {
+      "type": "richtext"
     }
   }
 }
