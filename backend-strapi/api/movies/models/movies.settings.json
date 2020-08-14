@@ -33,6 +33,12 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "genre": {
+      "model": "genre"
     }
   }
 }

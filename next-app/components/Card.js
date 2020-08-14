@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 function Card({ movie }) {
   const { API_URL } = process.env;
@@ -6,15 +7,18 @@ function Card({ movie }) {
   return (
     <CardStyled>
       <div className="poster">
-        <img
-          className="movie__poster"
-          src={API_URL + movie.poster.url}
-          alt=""
-        />
+        <img src={API_URL + movie.poster.url} alt="" />
       </div>
       <div className="body">
-        <h3>{movie.title}</h3>
+        <h3>{movie.movie_title}</h3>
         <p dangerouslySetInnerHTML={{ __html: movie.description }} />
+
+        <Link
+          href="/movies/[genre]/[slug]"
+          as={`/movies/${movie.genre.slug}/${movie.slug}`}
+        >
+          <a>More about this movie</a>
+        </Link>
       </div>
     </CardStyled>
   );
@@ -40,6 +44,10 @@ const CardStyled = styled.div`
     }
     .movie__poster {
       object-fit: none;
+    }
+    a {
+      display: inline-block;
+      margin: 20px 0;
     }
   }
 `;
